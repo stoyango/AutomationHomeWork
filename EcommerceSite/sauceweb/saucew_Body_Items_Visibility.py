@@ -3,7 +3,7 @@ import json
 from selenium import webdriver
 from EcommerceSite.sauceweb.Specific.sauce_login_page import LoginPage
 from EcommerceSite.sauceweb.Specific.sauce_logged_in_page import LoggedInPage
-from EcommerceSite.sauceweb.Specific.sauce_login_page_selectors import SauceWebLoginPageSelectors
+# from EcommerceSite.sauceweb.Specific.sauce_login_page_selectors import SauceWebLoginPageSelectors
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.ui import WebDriverWait
@@ -15,6 +15,7 @@ from selenium.webdriver.common.keys import Keys
 
 
 class LoginTest(unittest.TestCase):
+    logged_in = None
 
     @classmethod
     def setUpClass(cls):
@@ -31,6 +32,13 @@ class LoginTest(unittest.TestCase):
             login.login_flow("standard_user", "secret_sauce")
             logged_in = LoggedInPage(self.driver)
             logged_in.is_header_logged_displayed()
+        except:
+            raise Exception ('was no able to complete login flow')
+
+    def test_02_body_items(self):
+        try:
+            logged_in = LoggedInPage(self.driver)
+            logged_in.is_all_body_items_displayed()
         except:
             raise Exception ('was no able to complete login flow')
 

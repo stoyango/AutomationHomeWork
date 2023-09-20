@@ -6,40 +6,40 @@ class BasePage():
         self.timeout = timeout
         self.wait = WebDriverWait(self.driver, self.timeout)
 
-
-    def find_elements(self, *selector):
-        return self.driver.find_element(*selector)
-
-    def find_element(self, *selector):
-        """
-        This method returns an element
-        based on provided selector
-        :param selector: set selector
-        :return: element
-        """
-        return self.driver.find_element(*selector)
-
-    def scroll_to_all_games_btn(self):
-        self.scroll_to_element(*GamesSectionSelectors.ALL_GAMES_BTN)
-
-    def scroll_to_element(self, *selector):
-        """
-        This method performs scrolling to
-        specified element
-        :param selector: set selector
-        """
-        element = self.find_element(*selector)
-        scroll = ActionChains(self.driver).move_to_element(element)
-        scroll.perform()
-
-    def click_on_element(self, element_name, selector):
-        try:
-            self.cliable_element(selector=selector).click()
-        except:
-            raise Exception('asd')
-
-    def visibility_of_element(self, selector):
-        return self.wait.until(ec.visibility_of_element_located(selector))
+    #
+    # def find_elements(self, *selector):
+    #     return self.driver.find_element(*selector)
+    #
+    # def find_element(self, *selector):
+    #     """
+    #     This method returns an element
+    #     based on provided selector
+    #     :param selector: set selector
+    #     :return: element
+    #     """
+    #     return self.driver.find_element(*selector)
+    #
+    # def scroll_to_all_games_btn(self):
+    #     self.scroll_to_element(*GamesSectionSelectors.ALL_GAMES_BTN)
+    #
+    # def scroll_to_element(self, *selector):
+    #     """
+    #     This method performs scrolling to
+    #     specified element
+    #     :param selector: set selector
+    #     """
+    #     element = self.find_element(*selector)
+    #     scroll = ActionChains(self.driver).move_to_element(element)
+    #     scroll.perform()
+    #
+    # def click_on_element(self, element_name, selector):
+    #     try:
+    #         self.cliable_element(selector=selector).click()
+    #     except:
+    #         raise Exception('asd')
+    #
+    # def visibility_of_element(self, selector):
+    #     return self.wait.until(ec.visibility_of_element_located(selector))
 
     # def is_element_displayed(self, element_name, selector):
     #     """

@@ -10,8 +10,10 @@ class SauceWebPurcheseSelectors(object):
     CONTINUE = (By.ID, "continue")
     FINISH = (By.ID, "finish")
     COMLETE = (By.CLASS_NAME, "complete-header")
+    REMOVE_CART = (By.ID, "remove-sauce-labs-backpack")
+    CONTINUE_SHOPPING = (By.ID, "continue-shopping")
 
-class SauceWebLoggedIn(object):
+class SauceWebLoggedInSelectors(object):
     HEADER_CONTAINER = (By.ID, "header_container")
 
 class SauceWebBurgerMenuSelectors(object):
@@ -22,3 +24,12 @@ class SauceWebFooterSelectors(object):
 
 class SauceWebLogOutSelectors(object):
     LOG_OUT = (By.ID, "logout_sidebar_link")
+
+class SauseWebBodyItemSelectors(object):
+    FIRST_ITEM = (By.ID, "item_4_title_link")
+    SECOND_ITEM = (By.ID, "item_0_title_link")
+    THIRD_ITEM = (By.ID, "item_1_title_link")
+    FORTH_ITEM = (By.ID, "item_5_title_link")
+    FIFTH_ITEM = (By.ID, "item_2_title_link")
+    SIXTH_ITEM = (By.ID, "item_3_title_link")
+
