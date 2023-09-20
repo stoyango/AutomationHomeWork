@@ -18,12 +18,16 @@ class SauceWebLoggedInSelectors(object):
 
 class SauceWebBurgerMenuSelectors(object):
     BURGER_MENU = (By.CSS_SELECTOR, ".bm-burger-button")
+    ALL_ITEMS = (By.ID, "inventory_sidebar_link")
+    ABOUT = (By.ID, "about_sidebar_link")
+    LOGOUT = (By.ID, "logout_sidebar_link")
+    RESET_APP = (By.ID, "reset_sidebar_link")
 
 class SauceWebFooterSelectors(object):
     FOOTER = (By.CSS_SELECTOR, ".footer")
 
-class SauceWebLogOutSelectors(object):
-    LOG_OUT = (By.ID, "logout_sidebar_link")
+# class SauceWebLogOutSelectors(object):
+#     LOG_OUT = (By.ID, "logout_sidebar_link")
 
 class SauseWebBodyItemSelectors(object):
     FIRST_ITEM = (By.ID, "item_4_title_link")
@@ -32,4 +36,7 @@ class SauseWebBodyItemSelectors(object):
     FORTH_ITEM = (By.ID, "item_5_title_link")
     FIFTH_ITEM = (By.ID, "item_2_title_link")
     SIXTH_ITEM = (By.ID, "item_3_title_link")
+
+class SauseWebLogoSelectors(object):
+    LOGO = (By.CLASS_NAME, 'header_label')
 

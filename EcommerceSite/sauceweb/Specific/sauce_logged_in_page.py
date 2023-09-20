@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 from EcommerceSite.sauceweb.Specific.sauce_logged_in_page_selectors import SauceWebPurcheseSelectors, \
-    SauceWebBurgerMenuSelectors, SauceWebLoggedInSelectors, SauceWebLogOutSelectors, SauceWebFooterSelectors,\
-    SauseWebBodyItemSelectors
+    SauceWebBurgerMenuSelectors, SauceWebLoggedInSelectors, SauceWebFooterSelectors,\
+    SauseWebBodyItemSelectors, SauseWebLogoSelectors
 from BasePage.base_page import BasePage
 
 class LoggedInPage():
@@ -35,7 +35,7 @@ class LoggedInPage():
     def logout_flow(self):
         try:
             self.click_burger_menu()
-            self.driver.find_element(*SauceWebLogOutSelectors.LOG_OUT).click()
+            self.driver.find_element(*SauceWebBurgerMenuSelectors.LOGOUT).click()
         except:
             raise Exception ('')
 
@@ -50,6 +50,34 @@ class LoggedInPage():
             print('footer presented')
         else:
             print('footer not presented')
+
+    def is_all_items_displayed(self):
+        return self.driver.find_element(*SauceWebBurgerMenuSelectors.ALL_ITEMS)
+
+    def is_about_displayed(self):
+        return self.driver.find_element(*SauceWebBurgerMenuSelectors.ABOUT)
+
+    def is_logout_displayed(self):
+        return self.driver.find_element(*SauceWebBurgerMenuSelectors.LOGOUT)
+
+    def is_reset_app_displayed(self):
+        return self.driver.find_element(*SauceWebBurgerMenuSelectors.RESET_APP)
+
+    def is_all_burger_menu_items_displayed(self):
+        """
+        This method checks for visibility of banner's elements
+        :return: True or False
+        """
+        body_items = [self.is_all_items_displayed(), self.is_about_displayed(),
+                      self.is_logout_displayed(), self.is_reset_app_displayed()]
+        error_count = 0
+        for method in body_items:
+            if method is False:
+                error_count += 1
+        if error_count > 0:
+            return False
+        else:
+            return True
 
     def add_cart_flow(self):
             self.driver.find_element(*SauceWebPurcheseSelectors.ADD_CART).click()
@@ -107,8 +135,8 @@ class LoggedInPage():
         :return: True or False
         """
         body_items = [self.is_fifth_item_displayed(), self.is_sixth_item_displayed(),
-                          self.is_forth_Item_displayed(), self.is_third_item_displayed(),
-                          self.is_second_item_displayed(), self.is_first_item_displayed()]
+                      self.is_forth_Item_displayed(), self.is_third_item_displayed(),
+                      self.is_second_item_displayed(), self.is_first_item_displayed()]
         error_count = 0
         for method in body_items:
             if method is False:
@@ -117,6 +145,17 @@ class LoggedInPage():
             return False
         else:
             return True
+
+        # Method will check for live balance image
+    def get_logo_text(self):
+        return self.driver.find_element(*SauseWebLogoSelectors.LOGO).text
+
+    # Method will compare actual and expected text
+    def check_logo_text(self):
+        if self.get_logo_text() == "Swag Labs":
+            return True
+        else:
+            return False
 
 
 

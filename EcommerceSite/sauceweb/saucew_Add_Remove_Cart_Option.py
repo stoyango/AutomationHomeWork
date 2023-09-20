@@ -2,9 +2,6 @@ import unittest
 from selenium import webdriver
 from EcommerceSite.sauceweb.Specific.sauce_login_page import LoginPage
 from EcommerceSite.sauceweb.Specific.sauce_logged_in_page import LoggedInPage
-# from EcommerceSite.sauceweb.Specific.sauce_login_page_selectors import SauceWebLoginSelectors, SauceWebLogOutSelectors
-from selenium.webdriver.common.by import By
-# from selenium.
 
 class LoginTest(unittest.TestCase):
     logged_in = None
@@ -33,6 +30,6 @@ class LoginTest(unittest.TestCase):
         except:
             raise Exception ('was no able to complete login flow')
 
-    # @classmethod
-    # def tearDownClass(cls):
-    #     cls.driver.quit()
+    @classmethod
+    def tearDownClass(cls):
+        cls.driver.quit()
