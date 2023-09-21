@@ -12,7 +12,6 @@ class LoginTest(unittest.TestCase):
     def setUpClass(cls):
         cls.driver = webdriver.Firefox()
         cls.driver.get("https://www.saucedemo.com/")
-        # cls.driver.get(drivers_config["URL"])
         cls.driver.maximize_window()
 
 

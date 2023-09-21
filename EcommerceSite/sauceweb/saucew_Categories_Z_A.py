@@ -2,9 +2,6 @@ import unittest
 from selenium import webdriver
 from EcommerceSite.sauceweb.Specific.sauce_login_page import LoginPage
 from EcommerceSite.sauceweb.Specific.sauce_logged_in_page import LoggedInPage
-from EcommerceSite.sauceweb.Specific.sauce_login_page_selectors import SauceWebLoginPageSelectors
-
-
 
 class LoginTest(unittest.TestCase):
 
@@ -22,6 +19,13 @@ class LoginTest(unittest.TestCase):
             login.login_flow("standard_user", "secret_sauce")
             logged_in = LoggedInPage(self.driver)
             logged_in.is_header_logged_displayed()
-            self.assertTrue(logged_in.check_logo_text(), "Text dont match")
+            logged_in.click_categories_menu()
+            logged_in.click_categories_z_a_menu()
+            logged_in.deposit_methods_availability()
         except:
             raise Exception ('was no able to complete login flow')
+
+
+    # @classmethod
+    # def tearDownClass(cls):
+    #     cls.driver.quit()

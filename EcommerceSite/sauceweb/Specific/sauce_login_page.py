@@ -1,18 +1,6 @@
 from selenium.webdriver.common.by import By
 from EcommerceSite.sauceweb.Specific.sauce_login_page_selectors import SauceWebLoginPageSelectors
-from BasePage.base_page import BasePage
-from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-# import pytest
 from selenium import webdriver
-import sys
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.common.keys import Keys
-from time import sleep
 
 class LoginPage():
     def __init__(self, driver):

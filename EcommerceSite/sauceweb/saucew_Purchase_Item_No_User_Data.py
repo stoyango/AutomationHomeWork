@@ -2,11 +2,10 @@ import unittest
 from selenium import webdriver
 from EcommerceSite.sauceweb.Specific.sauce_login_page import LoginPage
 from EcommerceSite.sauceweb.Specific.sauce_logged_in_page import LoggedInPage
-from EcommerceSite.sauceweb.Specific.sauce_login_page_selectors import SauceWebLoginPageSelectors
+from selenium.webdriver.common.by import By
 
-
-
-class LoginTest(unittest.TestCase):
+class PurchaseItemFlow(unittest.TestCase):
+    logged_in = None
 
     @classmethod
     def setUpClass(cls):
@@ -20,8 +19,18 @@ class LoginTest(unittest.TestCase):
             login = LoginPage(self.driver)
             login.is_login_modal_displayed()
             login.login_flow("standard_user", "secret_sauce")
-            logged_in = LoggedInPage(self.driver)
-            logged_in.is_header_logged_displayed()
-            self.assertTrue(logged_in.check_logo_text(), "Text dont match")
         except:
             raise Exception ('was no able to complete login flow')
+
+    def test_02_purchase_flow(self):
+        try:
+           logged_in = LoggedInPage(self.driver)
+           logged_in.is_header_logged_displayed()
+           logged_in.purchase_item__no_user_data_flow()
+           self.assertTrue(logged_in.is_error_message_displayed(), "Text dont match")
+        except:
+            raise Exception ('was no able to complete login flow')
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.driver.quit()

@@ -1,8 +1,8 @@
 from selenium.webdriver.common.by import By
 from EcommerceSite.sauceweb.Specific.sauce_logged_in_page_selectors import SauceWebPurcheseSelectors, \
     SauceWebBurgerMenuSelectors, SauceWebLoggedInSelectors, SauceWebFooterSelectors,\
-    SauseWebBodyItemSelectors, SauseWebLogoSelectors
-from BasePage.base_page import BasePage
+    SauseWebBodyItemSelectors, SauseWebLogoSelectors, SauseWebErrorMsg, SauceWebCategoriesSelectors
+from selenium.webdriver.support.ui import Select
 
 class LoggedInPage():
     def __init__(self, driver):
@@ -22,13 +22,41 @@ class LoggedInPage():
             self.driver.find_element(*SauceWebPurcheseSelectors.CHECKOUT).click()
             self.driver.find_element(*SauceWebPurcheseSelectors.FIRST_NAME).send_keys(username)
             self.driver.find_element(*SauceWebPurcheseSelectors.LAST_NAME).send_keys(password)
-            self.driver.find_element(*SauceWebPurcheseSelectors.POST_CODE).send_keys(password)
+            self.driver.find_element(*SauceWebPurcheseSelectors.POST_CODE).send_keys(zipcode)
             self.driver.find_element(*SauceWebPurcheseSelectors.CONTINUE).click()
             self.driver.find_element(*SauceWebPurcheseSelectors.FINISH).click()
             if self.driver.find_element(*SauceWebPurcheseSelectors.COMLETE).is_displayed():
                 print('complete presented')
             else:
                 print('complete not presented')
+        except:
+            raise Exception ('')
+
+    def deposit_methods_availability(self):
+        """
+        This method compares and checks if the expected Payment methods for deposit
+        for CC IE geo and these displayed on the site are the same.
+        """
+        all_spans = self.driver.find_elements(*SauseWebBodyItemSelectors.INVENTORY_NAME)
+        for span in all_spans:
+            print(span.text)
+        expected_payment_methods = ['Test.allTheThings() T-Shirt (Red)', 'Sauce Labs Onesie', 'Sauce Labs Fleece Jacket',
+                                    'Sauce Labs Bolt T-Shirt', 'Sauce Labs Bike Light','Sauce Labs Backpack']
+        available_payment_methods = self.driver.find_elements(*SauseWebBodyItemSelectors.INVENTORY_NAME)
+        print(available_payment_methods)
+        if expected_payment_methods == available_payment_methods:
+            return True
+        else:
+            return False
+    def is_error_message_displayed(self):
+        return self.driver.find_element(*SauseWebErrorMsg.ERROR_MSG)
+
+    def purchase_item__no_user_data_flow(self):
+        try:
+            self.driver.find_element(*SauceWebPurcheseSelectors.ADD_CART).click()
+            self.driver.find_element(*SauceWebPurcheseSelectors.SHOPPING_CART).click()
+            self.driver.find_element(*SauceWebPurcheseSelectors.CHECKOUT).click()
+            self.driver.find_element(*SauceWebPurcheseSelectors.CONTINUE).click()
         except:
             raise Exception ('')
 
@@ -42,6 +70,19 @@ class LoggedInPage():
     def click_burger_menu(self):
         try:
             self.driver.find_element(*SauceWebBurgerMenuSelectors.BURGER_MENU).click()
+        except:
+            raise Exception ('')
+
+    def click_categories_menu(self):
+        try:
+            self.driver.find_element(*SauceWebCategoriesSelectors.CATEGORIES).click()
+        except:
+            raise Exception ('')
+
+    def click_categories_z_a_menu(self):
+        try:
+            select = Select(self.driver.find_element(*SauceWebCategoriesSelectors.CATEGORIES))
+            select.select_by_value('za')
         except:
             raise Exception ('')
 
@@ -80,8 +121,8 @@ class LoggedInPage():
             return True
 
     def add_cart_flow(self):
-            self.driver.find_element(*SauceWebPurcheseSelectors.ADD_CART).click()
-            self.driver.find_element(*SauceWebPurcheseSelectors.SHOPPING_CART).click()
+        self.driver.find_element(*SauceWebPurcheseSelectors.ADD_CART).click()
+        self.driver.find_element(*SauceWebPurcheseSelectors.SHOPPING_CART).click()
 
     def is_added_item_displayed(self):
         if self.driver.find_element(*SauceWebPurcheseSelectors.REMOVE_CART).is_displayed():
