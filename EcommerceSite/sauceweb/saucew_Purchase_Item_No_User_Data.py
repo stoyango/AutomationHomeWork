@@ -20,7 +20,7 @@ class PurchaseItemFlow(unittest.TestCase):
             login.is_login_modal_displayed()
             login.login_flow("standard_user", "secret_sauce")
         except:
-            raise Exception ('Was no able to complete login flow')
+            raise Exception('Was no able to complete login flow')
 
     def test_02_purchase_flow_no_data(self):
         try:
@@ -30,7 +30,7 @@ class PurchaseItemFlow(unittest.TestCase):
            self.assertTrue(logged_in.is_error_message_displayed(), "Error msg was not displayed")
            print('Error msg was displayed')
         except:
-            raise Exception ('Was no able to complete purchase flow')
+            raise Exception('Was no able to complete purchase flow')
 
     @classmethod
     def tearDownClass(cls):

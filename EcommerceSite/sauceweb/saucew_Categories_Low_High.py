@@ -26,7 +26,7 @@ class LoginTest(unittest.TestCase):
             categories.categories_availability_low_high()
             print('Low to High categories were verified successfully')
         except:
-            raise Exception ('Low to High categories were not verified')
+            raise Exception('Low to High categories were not verified')
 
     @classmethod
     def tearDownClass(cls):

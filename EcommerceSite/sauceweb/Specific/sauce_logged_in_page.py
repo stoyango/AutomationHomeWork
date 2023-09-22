@@ -1,13 +1,12 @@
-from selenium.webdriver.common.by import By
 from EcommerceSite.sauceweb.Specific.sauce_logged_in_page_selectors import SauceWebPurcheseSelectors, \
     SauceWebBurgerMenuSelectors, SauceWebLoggedInSelectors, SauceWebFooterSelectors,\
     SauseWebBodyItemSelectors, SauseWebLogoSelectors, SauseWebErrorMsg, SauceWebCategoriesSelectors
 from selenium.webdriver.support.ui import Select
 
-class LoggedInPage():
+
+class LoggedInPage:
     def __init__(self, driver):
         self.driver = driver
-
 
     def is_header_logged_displayed(self):
         """
@@ -38,7 +37,7 @@ class LoggedInPage():
             else:
                 print('Purchase flow not completed')
         except:
-            raise Exception ('Was not able to proceed with purchase flow')
+            raise Exception('Was not able to proceed with purchase flow')
 
     def add_cart_flow(self):
         """
@@ -49,7 +48,7 @@ class LoggedInPage():
             self.driver.find_element(*SauceWebPurcheseSelectors.SHOPPING_CART).click()
             print('Add cart flow completed')
         except:
-            raise Exception ('Add cart flow was not completed')
+            raise Exception('Add cart flow was not completed')
 
     def remove_cart_flow(self):
         """
@@ -60,7 +59,7 @@ class LoggedInPage():
             self.driver.find_element(*SauceWebPurcheseSelectors.CONTINUE_SHOPPING).click()
             print('Remove cart flow completed')
         except:
-            raise Exception ('Remove cart flow not completed')
+            raise Exception('Remove cart flow not completed')
 
     def is_error_message_displayed(self):
         """
@@ -79,9 +78,10 @@ class LoggedInPage():
             self.driver.find_element(*SauceWebPurcheseSelectors.CONTINUE).click()
             print('Add Cart, Shopping Cart and Checkout and Continue were clicked')
         except:
-            raise Exception ('Was not able to proceed with the flow')
+            raise Exception('Was not able to proceed with the flow')
 
-class Footer():
+
+class Footer:
     def __init__(self, driver):
         self.driver = driver
 
@@ -91,7 +91,8 @@ class Footer():
         """
         return self.driver.find_element(*SauceWebFooterSelectors.FOOTER)
 
-class BurgerMenuItems():
+
+class BurgerMenuItems:
     def __init__(self, driver):
         self.driver = driver
 
@@ -102,7 +103,7 @@ class BurgerMenuItems():
         try:
             self.driver.find_element(*SauceWebBurgerMenuSelectors.BURGER_MENU).click()
         except:
-            raise Exception ('Burger menu was not clicked')
+            raise Exception('Burger menu was not clicked')
 
     def logout_flow(self):
         """
@@ -112,7 +113,7 @@ class BurgerMenuItems():
             self.click_burger_menu()
             self.driver.find_element(*SauceWebBurgerMenuSelectors.LOGOUT).click()
         except:
-            raise Exception ('Logout flow was not completed')
+            raise Exception('Logout flow was not completed')
 
     def is_all_items_displayed(self):
         """
@@ -151,7 +152,6 @@ class BurgerMenuItems():
                 error_count += 1
         if error_count > 0:
             return False
-            print('Could not verify burger menu items')
         else:
             return True
 
@@ -164,7 +164,8 @@ class BurgerMenuItems():
         else:
             print('Added item not presented')
 
-class BodyItems():
+
+class BodyItems:
     def __init__(self, driver):
         self.driver = driver
 
@@ -195,7 +196,7 @@ class BodyItems():
         else:
             print('Bolt T-Shirt not presented')
 
-    def is_forth_Item_displayed(self):
+    def is_forth_item_displayed(self):
         """
         Method will check if element is displayed
         """
@@ -228,7 +229,7 @@ class BodyItems():
         :return: True or False
         """
         body_items = [self.is_fifth_item_displayed(), self.is_sixth_item_displayed(),
-                      self.is_forth_Item_displayed(), self.is_third_item_displayed(),
+                      self.is_forth_item_displayed(), self.is_third_item_displayed(),
                       self.is_second_item_displayed(), self.is_first_item_displayed()]
         error_count = 0
         for method in body_items:
@@ -239,7 +240,8 @@ class BodyItems():
         else:
             return True
 
-class Logo():
+
+class Logo:
     def __init__(self, driver):
         self.driver = driver
 
@@ -260,7 +262,7 @@ class Logo():
             return False
 
 
-class CategoriesMenu():
+class CategoriesMenu:
     def __init__(self, driver):
         self.driver = driver
 
@@ -269,8 +271,10 @@ class CategoriesMenu():
         Method will verify if all items are displayed after categories are changed
         """
         expected_payment_methods = ['Test.allTheThings() T-Shirt (Red)', 'Sauce Labs Onesie', 'Sauce Labs Fleece Jacket',
-                                    'Sauce Labs Bolt T-Shirt', 'Sauce Labs Bike Light','Sauce Labs Backpack']
+                                    'Sauce Labs Bolt T-Shirt', 'Sauce Labs Bike Light', 'Sauce Labs Backpack']
         available_payment_methods = self.driver.find_elements(*SauseWebBodyItemSelectors.INVENTORY_NAME)
+        for items in available_payment_methods:
+            print(items.text)
         if expected_payment_methods == available_payment_methods:
             return True
         else:
@@ -281,8 +285,10 @@ class CategoriesMenu():
         Method will verify if all items are displayed after categories are changed
         """
         expected_payment_methods = ['Test.allTheThings() T-Shirt (Red)', 'Sauce Labs Onesie', 'Sauce Labs Fleece Jacket',
-                                    'Sauce Labs Bolt T-Shirt', 'Sauce Labs Bike Light','Sauce Labs Backpack']
+                                    'Sauce Labs Bolt T-Shirt', 'Sauce Labs Bike Light', 'Sauce Labs Backpack']
         available_payment_methods = self.driver.find_elements(*SauseWebBodyItemSelectors.INVENTORY_NAME)
+        for items in available_payment_methods:
+            print(items.text)
         if expected_payment_methods == available_payment_methods:
             return True
         else:
@@ -293,8 +299,10 @@ class CategoriesMenu():
         Method will verify if all items are displayed after categories are changed
         """
         expected_payment_methods = ['Sauce Labs Fleece Jacket', 'Sauce Labs Backpack', 'Sauce Labs Bolt T-Shirt',
-                                    'Test.allTheThings() T-Shirt (Red)', 'Sauce Labs Bike Light','Sauce Labs Onesie']
+                                    'Test.allTheThings() T-Shirt (Red)', 'Sauce Labs Bike Light', 'Sauce Labs Onesie']
         available_payment_methods = self.driver.find_elements(*SauseWebBodyItemSelectors.INVENTORY_NAME)
+        for items in available_payment_methods:
+            print(items.text)
         if expected_payment_methods == available_payment_methods:
             return True
         else:
@@ -304,12 +312,11 @@ class CategoriesMenu():
         """
         Method will verify if all items are displayed after categories are changed
         """
-        all_spans = self.driver.find_elements(*SauseWebBodyItemSelectors.INVENTORY_NAME)
-        for span in all_spans:
-            print(span.text)
         expected_payment_methods = ['Sauce Labs Onesie', 'Sauce Labs Bike Light', 'Sauce Labs Bolt T-Shirt',
-                                    'Test.allTheThings() T-Shirt (Red)', 'Sauce Labs Backpack','Sauce Labs Fleece Jacket']
+                                    'Test.allTheThings() T-Shirt (Red)', 'Sauce Labs Backpack', 'Sauce Labs Fleece Jacket']
         available_payment_methods = self.driver.find_elements(*SauseWebBodyItemSelectors.INVENTORY_NAME)
+        for items in available_payment_methods:
+            print(items.text)
         if expected_payment_methods == available_payment_methods:
             return True
         else:

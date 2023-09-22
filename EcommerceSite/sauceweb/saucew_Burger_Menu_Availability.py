@@ -25,7 +25,7 @@ class LoginTest(unittest.TestCase):
             burger_menu.is_all_burger_menu_items_displayed()
             print('Burger Menu items were verified successfully')
         except:
-            raise Exception ('Could not verify burger menu items')
+            raise Exception('Could not verify burger menu items')
 
     @classmethod
     def tearDownClass(cls):

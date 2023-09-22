@@ -21,9 +21,9 @@ class PurchaseItemFlow(unittest.TestCase):
             login.login_flow("standard_user", "secret_sauce")
             logged_in = LoggedInPage(self.driver)
             logged_in.is_header_logged_displayed()
-            logged_in.purchase_item_flow("Stoyan","G","1505")
+            logged_in.purchase_item_flow("Stoyan", "G", "1505")
         except:
-            raise Exception ('Was no able to complete purchase flow')
+            raise Exception('Was no able to complete purchase flow')
 
     @classmethod
     def tearDownClass(cls):

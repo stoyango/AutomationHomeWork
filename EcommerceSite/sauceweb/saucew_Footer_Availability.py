@@ -23,7 +23,7 @@ class LoginTest(unittest.TestCase):
             logged_in.is_header_logged_displayed()
             self.assertTrue(Footer(self.driver).is_footer_displayed(), "Text dont match")
         except:
-            raise Exception ('Was no able to verify footer availability')
+            raise Exception('Was no able to verify footer availability')
 
     @classmethod
     def tearDownClass(cls):

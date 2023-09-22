@@ -31,7 +31,7 @@ class LoginTest(unittest.TestCase):
            self.__class__.logged_in.remove_cart_flow()
            print('Add/Remove flow was successful')
         except:
-            raise Exception ('Was no able to complete Add/Remove flow')
+            raise Exception('Was no able to complete Add/Remove flow')
 
     @classmethod
     def tearDownClass(cls):

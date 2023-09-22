@@ -1,11 +1,9 @@
-from selenium.webdriver.common.by import By
 from EcommerceSite.sauceweb.Specific.sauce_login_page_selectors import SauceWebLoginPageSelectors
-from selenium import webdriver
 
-class LoginPage():
-    def __init__(self, driver, timeout=10):
+
+class LoginPage:
+    def __init__(self, driver):
         self.driver = driver
-
 
     def is_login_modal_displayed(self):
         """
@@ -35,4 +33,4 @@ class LoginPage():
             self.driver.find_element(*SauceWebLoginPageSelectors.LOGIN_BTN).click()
             print('Login flow was completed')
         except:
-            raise Exception ('Could not complete login flow')
+            raise Exception('Could not complete login flow')

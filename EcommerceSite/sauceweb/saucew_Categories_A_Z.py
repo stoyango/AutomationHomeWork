@@ -24,7 +24,7 @@ class LoginTest(unittest.TestCase):
             categories.categories_availability_a_z()
             print('A to Z categories were verified successfully')
         except:
-            raise Exception ('A to Z categories were not verified')
+            raise Exception('A to Z categories were not verified')
 
     @classmethod
     def tearDownClass(cls):

@@ -24,7 +24,7 @@ class LoginTest(unittest.TestCase):
             burger_menu.logout_flow()
             login.is_login_modal_displayed()
         except:
-            raise Exception ('was no able to complete login flow')
+            raise Exception('was no able to complete logout flow')
 
     @classmethod
     def tearDownClass(cls):

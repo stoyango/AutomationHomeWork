@@ -20,7 +20,7 @@ class PurchaseItemFlow(unittest.TestCase):
             login.is_error_msg_displayed()
             print('Error msg was displayed')
         except:
-            raise Exception ('Was no able to complete logout flow')
+            raise Exception('Was no able to complete logout flow')
 
     @classmethod
     def tearDownClass(cls):

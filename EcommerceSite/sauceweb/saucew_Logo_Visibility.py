@@ -21,8 +21,9 @@ class LoginTest(unittest.TestCase):
             logged_in = LoggedInPage(self.driver)
             logged_in.is_header_logged_displayed()
             self.assertTrue(Logo(self.driver).check_logo_text(), "Text dont match")
+            print('Logo was displayed')
         except:
-            raise Exception ('was no able to complete login flow')
+            raise Exception('Was no able to verify logo')
 
     @classmethod
     def tearDownClass(cls):

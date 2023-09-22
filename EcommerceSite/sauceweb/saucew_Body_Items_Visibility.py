@@ -29,7 +29,7 @@ class LoginTest(unittest.TestCase):
             body_items = BodyItems(self.driver)
             body_items.is_all_body_items_displayed()
         except:
-            raise Exception ('Was no able to verify body items')
+            raise Exception('Was no able to verify body items')
 
     @classmethod
     def tearDownClass(cls):

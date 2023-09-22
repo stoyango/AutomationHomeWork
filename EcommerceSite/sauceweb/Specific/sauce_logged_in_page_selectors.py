@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 Selectors for Sauce Web logged in user state
 """
 
+
 class SauceWebPurcheseSelectors(object):
     ADD_CART = (By.ID, "add-to-cart-sauce-labs-backpack")
     SHOPPING_CART = (By.ID, "shopping_cart_container")
@@ -17,8 +18,10 @@ class SauceWebPurcheseSelectors(object):
     REMOVE_CART = (By.ID, "remove-sauce-labs-backpack")
     CONTINUE_SHOPPING = (By.ID, "continue-shopping")
 
+
 class SauceWebLoggedInSelectors(object):
     HEADER_CONTAINER = (By.ID, "header_container")
+
 
 class SauceWebBurgerMenuSelectors(object):
     BURGER_MENU = (By.CSS_SELECTOR, ".bm-burger-button")
@@ -27,15 +30,19 @@ class SauceWebBurgerMenuSelectors(object):
     LOGOUT = (By.ID, "logout_sidebar_link")
     RESET_APP = (By.ID, "reset_sidebar_link")
 
+
 class SauceWebCategoriesSelectors(object):
     CATEGORIES = (By.CLASS_NAME, "product_sort_container")
     Z_A_CATEGORIE = (By.CLASS_NAME, "product_sort_container")
 
+
 class SauceWebFooterSelectors(object):
     FOOTER = (By.CSS_SELECTOR, ".footer")
 
+
 class SauseWebErrorMsg(object):
     ERROR_MSG = (By.ID, "logout_sidebar_link")
+
 
 class SauseWebBodyItemSelectors(object):
     FIRST_ITEM = (By.ID, "item_4_title_link")
@@ -45,6 +52,7 @@ class SauseWebBodyItemSelectors(object):
     FIFTH_ITEM = (By.ID, "item_2_title_link")
     SIXTH_ITEM = (By.ID, "item_3_title_link")
     INVENTORY_NAME = (By.CLASS_NAME, "inventory_item_name")
+
 
 class SauseWebLogoSelectors(object):
     LOGO = (By.CLASS_NAME, 'header_label')
