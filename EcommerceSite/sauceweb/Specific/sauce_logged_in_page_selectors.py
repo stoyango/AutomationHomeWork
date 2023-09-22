@@ -1,5 +1,9 @@
 from selenium.webdriver.common.by import By
 
+"""
+Selectors for Sauce Web logged in user state
+"""
+
 class SauceWebPurcheseSelectors(object):
     ADD_CART = (By.ID, "add-to-cart-sauce-labs-backpack")
     SHOPPING_CART = (By.ID, "shopping_cart_container")

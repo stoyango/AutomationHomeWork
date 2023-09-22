@@ -1,7 +1,7 @@
 import unittest
 from selenium import webdriver
 from EcommerceSite.sauceweb.Specific.sauce_login_page import LoginPage
-from EcommerceSite.sauceweb.Specific.sauce_logged_in_page import LoggedInPage
+from EcommerceSite.sauceweb.Specific.sauce_logged_in_page import LoggedInPage, BodyItems
 
 
 
@@ -23,14 +23,14 @@ class LoginTest(unittest.TestCase):
             logged_in = LoggedInPage(self.driver)
             logged_in.is_header_logged_displayed()
         except:
-            raise Exception ('was no able to complete login flow')
+            raise Exception ('Was no able to complete login flow')
 
     def test_02_body_items(self):
         try:
-            logged_in = LoggedInPage(self.driver)
-            logged_in.is_all_body_items_displayed()
+            body_items = BodyItems(self.driver)
+            body_items.is_all_body_items_displayed()
         except:
-            raise Exception ('was no able to complete login flow')
+            raise Exception ('Was no able to verify body items')
 
     @classmethod
     def tearDownClass(cls):

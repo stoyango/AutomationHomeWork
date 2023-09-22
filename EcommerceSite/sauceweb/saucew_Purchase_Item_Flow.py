@@ -2,7 +2,6 @@ import unittest
 from selenium import webdriver
 from EcommerceSite.sauceweb.Specific.sauce_login_page import LoginPage
 from EcommerceSite.sauceweb.Specific.sauce_logged_in_page import LoggedInPage
-from selenium.webdriver.common.by import By
 
 class PurchaseItemFlow(unittest.TestCase):
     logged_in = None
@@ -14,21 +13,16 @@ class PurchaseItemFlow(unittest.TestCase):
         cls.driver.maximize_window()
 
 
-    def test_01_login(self):
+    def test_01_purchase_flow(self):
         try:
             login = LoginPage(self.driver)
             login.is_login_modal_displayed()
             login.login_flow("standard_user", "secret_sauce")
-            self.__class__.logged_in = LoggedInPage(self.driver)
-            self.__class__.logged_in.is_header_logged_displayed()
+            logged_in = LoggedInPage(self.driver)
+            logged_in.is_header_logged_displayed()
+            logged_in.purchase_item_flow("Stoyan","G","1505")
         except:
-            raise Exception ('was no able to complete login flow')
-
-    def test_02_purchase_flow(self):
-        try:
-           self.__class__.logged_in.purchase_item_flow("Stoyan","G","1505")
-        except:
-            raise Exception ('was no able to complete login flow')
+            raise Exception ('Was no able to complete purchase flow')
 
     @classmethod
     def tearDownClass(cls):

@@ -1,7 +1,7 @@
 import unittest
 from selenium import webdriver
 from EcommerceSite.sauceweb.Specific.sauce_login_page import LoginPage
-from EcommerceSite.sauceweb.Specific.sauce_logged_in_page import LoggedInPage
+from EcommerceSite.sauceweb.Specific.sauce_logged_in_page import LoggedInPage, Footer
 class LoginTest(unittest.TestCase):
 
     @classmethod
@@ -15,13 +15,13 @@ class LoginTest(unittest.TestCase):
         cls.driver.maximize_window()
 
 
-    def test_01_login(self):
+    def test_01_footer(self):
         try:
             logged_in = LoggedInPage(self.driver)
             logged_in.is_header_logged_displayed()
-            logged_in.is_footer_displayed()
+            self.assertTrue(Footer(self.driver).is_footer_displayed(), "Text dont match")
         except:
-            raise Exception ('was no able to complete login flow')
+            raise Exception ('Was no able to verify footer availability')
 
     @classmethod
     def tearDownClass(cls):

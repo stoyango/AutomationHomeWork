@@ -20,15 +20,17 @@ class LoginTest(unittest.TestCase):
             login.login_flow("standard_user", "secret_sauce")
             self.__class__.logged_in = LoggedInPage(self.driver)
             self.__class__.logged_in.is_header_logged_displayed()
+            print('User logged in successfully')
         except:
-            raise Exception ('was no able to complete login flow')
+            raise Exception ('Was no able to complete login flow')
 
-    def test_02_purchase_flow(self):
+    def test_02_add_remove_flow(self):
         try:
            self.__class__.logged_in.add_cart_flow()
            self.__class__.logged_in.remove_cart_flow()
+           print('Add/Remove flow was successful')
         except:
-            raise Exception ('was no able to complete login flow')
+            raise Exception ('Was no able to complete Add/Remove flow')
 
     @classmethod
     def tearDownClass(cls):

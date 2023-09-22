@@ -14,7 +14,7 @@ class LoginTest(unittest.TestCase):
 
     def test_01_login(self):
         try:
-            login = LoginPage(self.driver)
+            login = LoginPage(self.driver, timeout=10)
             login.is_login_modal_displayed()
             login.login_flow("standard_user", "secret_sauce")
             logged_in = LoggedInPage(self.driver)
