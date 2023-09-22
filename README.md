@@ -21,4 +21,5 @@ Setup steps:
     Issues found during the test implementation:
     - Burger menu items "All Items" and "Reset App State" not working
     - User is able to complete purchase flow without any item selected
+    - If user has selected all items with "Add to cart" option and logout and login again, items remain selected
       
