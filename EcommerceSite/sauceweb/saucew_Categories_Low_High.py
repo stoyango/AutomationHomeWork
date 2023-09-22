@@ -3,14 +3,15 @@ from selenium import webdriver
 from EcommerceSite.sauceweb.Specific.sauce_login_page import LoginPage
 from EcommerceSite.sauceweb.Specific.sauce_logged_in_page import LoggedInPage, CategoriesMenu
 
+
 class LoginTest(unittest.TestCase):
+    driver = None
 
     @classmethod
     def setUpClass(cls):
         cls.driver = webdriver.Firefox()
         cls.driver.get("https://www.saucedemo.com/")
         cls.driver.maximize_window()
-
 
     def test_01_categories_low_high(self):
         try:
@@ -26,7 +27,6 @@ class LoginTest(unittest.TestCase):
             print('Low to High categories were verified successfully')
         except:
             raise Exception ('Low to High categories were not verified')
-
 
     @classmethod
     def tearDownClass(cls):

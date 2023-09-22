@@ -2,7 +2,9 @@ import unittest
 from selenium import webdriver
 from EcommerceSite.sauceweb.Specific.sauce_login_page import LoginPage
 
+
 class PurchaseItemFlow(unittest.TestCase):
+    driver = None
 
     @classmethod
     def setUpClass(cls):

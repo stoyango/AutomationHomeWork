@@ -2,7 +2,10 @@ import unittest
 from selenium import webdriver
 from EcommerceSite.sauceweb.Specific.sauce_login_page import LoginPage
 from EcommerceSite.sauceweb.Specific.sauce_logged_in_page import LoggedInPage, Footer
+
+
 class LoginTest(unittest.TestCase):
+    driver = None
 
     @classmethod
     def setUpClass(cls):
@@ -13,7 +16,6 @@ class LoginTest(unittest.TestCase):
         login.login_flow("standard_user", "secret_sauce")
         cls.driver.execute_script("window.scrollBy(0, document.documentElement.scrollHeight)")
         cls.driver.maximize_window()
-
 
     def test_01_footer(self):
         try:

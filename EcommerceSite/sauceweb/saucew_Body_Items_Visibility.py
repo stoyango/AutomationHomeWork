@@ -4,16 +4,15 @@ from EcommerceSite.sauceweb.Specific.sauce_login_page import LoginPage
 from EcommerceSite.sauceweb.Specific.sauce_logged_in_page import LoggedInPage, BodyItems
 
 
-
 class LoginTest(unittest.TestCase):
     logged_in = None
+    driver = None
 
     @classmethod
     def setUpClass(cls):
         cls.driver = webdriver.Firefox()
         cls.driver.get("https://www.saucedemo.com/")
         cls.driver.maximize_window()
-
 
     def test_01_login(self):
         try:
