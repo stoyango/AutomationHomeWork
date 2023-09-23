@@ -6,7 +6,7 @@ Setup steps:
 4. Run PyCharm
 5. Choose "Get from VCS
 6. install Git if needed
-7. Click Clone
+7. https://github.com/stoyango/AutomationHomeWork.git Click Clone
 8. Trust Project
 9. Navigate to File -> Settings
 10. Project
