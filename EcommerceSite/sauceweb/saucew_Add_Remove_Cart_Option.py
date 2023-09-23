@@ -27,9 +27,9 @@ class LoginTest(unittest.TestCase):
 
     def test_02_add_remove_flow(self):
         try:
-           self.__class__.logged_in.add_cart_flow()
-           self.__class__.logged_in.remove_cart_flow()
-           print('Add/Remove flow was successful')
+            self.__class__.logged_in.add_cart_flow()
+            self.__class__.logged_in.remove_cart_flow()
+            print('Add/Remove flow was successful')
         except:
             raise Exception('Was no able to complete Add/Remove flow')
 

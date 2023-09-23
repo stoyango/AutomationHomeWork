@@ -169,6 +169,165 @@ class BodyItems:
     def __init__(self, driver):
         self.driver = driver
 
+    def click_back_navigation(self):
+        """
+        Method will click back navigation
+        """
+        try:
+            self.driver.find_element(*SauseWebBodyItemSelectors.BACK_NAVIGATION).click()
+        except:
+            raise Exception('Back navigation was not clicked')
+
+    def click_bike_light_item(self):
+        """
+        Method will click bike light
+        """
+        try:
+            self.driver.find_element(*SauseWebBodyItemSelectors.BIKE_LIGHT).click()
+        except:
+            raise Exception('Bike light was not clicked')
+
+    def get_bike_light_text(self):
+        """
+        Method will get the text from an element
+        """
+        return self.driver.find_element(*SauseWebBodyItemSelectors.ITEM_TEXT).text
+
+    def check_bike_light_text(self):
+        """
+        Method will assert if actual and expected text are
+        :return: True or False
+        """
+        if self.get_bike_light_text() == "Sauce Labs Bike Light":
+            return True
+        else:
+            return False
+
+    def click_backpack_item(self):
+        """
+        Method will click backpack item
+        """
+        try:
+            self.driver.find_element(*SauseWebBodyItemSelectors.BACKPACK).click()
+        except:
+            raise Exception('Backpack item was not clicked')
+
+    def get_backpack_text(self):
+        """
+        Method will get the text from an element
+        """
+        return self.driver.find_element(*SauseWebBodyItemSelectors.ITEM_TEXT).text
+
+    def check_backpack_text(self):
+        """
+        Method will assert if actual and expected text are
+        :return: True or False
+        """
+        if self.get_backpack_text() == "Sauce Labs Backpack":
+            return True
+        else:
+            return False
+
+    def click_bolt_tshirt_item(self):
+        """
+        Method will click Sauce Labs Bolt T-Shirt
+        """
+        try:
+            self.driver.find_element(*SauseWebBodyItemSelectors.BOLT_TSHIRT).click()
+        except:
+            raise Exception('Sauce Labs Bolt T-Shirt was not clicked')
+
+    def get_bolt_tshirt_text(self):
+        """
+        Method will get the text from an element
+        """
+        return self.driver.find_element(*SauseWebBodyItemSelectors.ITEM_TEXT).text
+
+    def check_bolt_tshirt_text(self):
+        """
+        Method will assert if actual and expected text are
+        :return: True or False
+        """
+        if self.get_bolt_tshirt_text() == "Sauce Labs Bolt T-Shirt":
+            return True
+        else:
+            return False
+
+    def click_fleece_jacket_item(self):
+        """
+        Method will click Sauce Labs Fleece Jacket
+        """
+        try:
+            self.driver.find_element(*SauseWebBodyItemSelectors.FLEECE_JACKET).click()
+        except:
+            raise Exception('Sauce Labs Fleece Jacket was not clicked')
+
+    def get_fleece_jacket_text(self):
+        """
+        Method will get the text from an element
+        """
+        return self.driver.find_element(*SauseWebBodyItemSelectors.ITEM_TEXT).text
+
+    def check_fleece_jacket_text(self):
+        """
+        Method will assert if actual and expected text are
+        :return: True or False
+        """
+        if self.get_fleece_jacket_text() == "Sauce Labs Fleece Jacket":
+            return True
+        else:
+            return False
+
+    def click_onesie_item(self):
+        """
+        Method will click Sauce Labs Onesie
+        """
+        try:
+            self.driver.find_element(*SauseWebBodyItemSelectors.ONESIE).click()
+        except:
+            raise Exception('Sauce Labs Onesie was not clicked')
+
+    def get_onesie_text(self):
+        """
+        Method will get the text from an element
+        """
+        return self.driver.find_element(*SauseWebBodyItemSelectors.ITEM_TEXT).text
+
+    def check_onesie_text(self):
+        """
+        Method will assert if actual and expected text are
+        :return: True or False
+        """
+        if self.get_onesie_text() == "Sauce Labs Onesie":
+            return True
+        else:
+            return False
+
+    def click_red_tshirt_item(self):
+        """
+        Method will click Test.allTheThings() T-Shirt (Red)
+        """
+        try:
+            self.driver.find_element(*SauseWebBodyItemSelectors.RED_TSHIRT).click()
+        except:
+            raise Exception('Test.allTheThings() T-Shirt (Red) was not clicked')
+
+    def get_red_tshirt_text(self):
+        """
+        Method will get the text from an element
+        """
+        return self.driver.find_element(*SauseWebBodyItemSelectors.ITEM_TEXT).text
+
+    def check_red_tshirt_text(self):
+        """
+        Method will assert if actual and expected text are
+        :return: True or False
+        """
+        if self.get_red_tshirt_text() == "Test.allTheThings() T-Shirt (Red)":
+            return True
+        else:
+            return False
+
     def is_first_item_displayed(self):
         """
         Method will check if element is displayed
@@ -329,7 +488,7 @@ class CategoriesMenu:
         try:
             self.driver.find_element(*SauceWebCategoriesSelectors.CATEGORIES).click()
         except:
-            raise Exception ('Categories menu was not clicked')
+            raise Exception('Categories menu was not clicked')
 
     def click_categories_z_a_menu(self):
         """
@@ -339,7 +498,7 @@ class CategoriesMenu:
             select = Select(self.driver.find_element(*SauceWebCategoriesSelectors.CATEGORIES))
             select.select_by_value('za')
         except:
-            raise Exception ('Categories Z to A was not clicked')
+            raise Exception('Categories Z to A was not clicked')
 
     def click_categories_high_low_menu(self):
         """
@@ -349,7 +508,7 @@ class CategoriesMenu:
             select = Select(self.driver.find_element(*SauceWebCategoriesSelectors.CATEGORIES))
             select.select_by_value('hilo')
         except:
-            raise Exception ('Categories High to Low was not clicked')
+            raise Exception('Categories High to Low was not clicked')
 
     def click_categories_low_high_menu(self):
         """
@@ -359,4 +518,4 @@ class CategoriesMenu:
             select = Select(self.driver.find_element(*SauceWebCategoriesSelectors.CATEGORIES))
             select.select_by_value('lohi')
         except:
-            raise Exception ('Categories Low to High was not clicked')
+            raise Exception('Categories Low to High was not clicked')

@@ -52,6 +52,14 @@ class SauseWebBodyItemSelectors(object):
     FIFTH_ITEM = (By.ID, "item_2_title_link")
     SIXTH_ITEM = (By.ID, "item_3_title_link")
     INVENTORY_NAME = (By.CLASS_NAME, "inventory_item_name")
+    BACKPACK = (By.XPATH, "//*[contains(text(), 'Sauce Labs Backpack')]")
+    BOLT_TSHIRT = (By.XPATH, "//*[contains(text(), 'Sauce Labs Bolt T-Shirt')]")
+    BIKE_LIGHT = (By.XPATH, "//*[contains(text(), 'Sauce Labs Bike Light')]")
+    FLEECE_JACKET = (By.XPATH, "//*[contains(text(), 'Sauce Labs Fleece Jacket')]")
+    ONESIE = (By.XPATH, "//*[contains(text(), 'Sauce Labs Onesie')]")
+    RED_TSHIRT = (By.XPATH, "//*[contains(text(), 'Test.allTheThings() T-Shirt (Red)')]")
+    ITEM_TEXT = (By.CSS_SELECTOR, '.inventory_details_name')
+    BACK_NAVIGATION = (By.ID, 'back-to-products')
 
 
 class SauseWebLogoSelectors(object):

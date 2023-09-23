@@ -24,11 +24,11 @@ class PurchaseItemFlow(unittest.TestCase):
 
     def test_02_purchase_flow_no_data(self):
         try:
-           logged_in = LoggedInPage(self.driver)
-           logged_in.is_header_logged_displayed()
-           logged_in.purchase_item_no_user_data_flow()
-           self.assertTrue(logged_in.is_error_message_displayed(), "Error msg was not displayed")
-           print('Error msg was displayed')
+            logged_in = LoggedInPage(self.driver)
+            logged_in.is_header_logged_displayed()
+            logged_in.purchase_item_no_user_data_flow()
+            self.assertTrue(logged_in.is_error_message_displayed(), "Error msg was not displayed")
+            print('Error msg was displayed')
         except:
             raise Exception('Was no able to complete purchase flow')
 

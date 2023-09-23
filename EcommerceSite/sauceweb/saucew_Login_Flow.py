@@ -21,7 +21,7 @@ class LoginTest(unittest.TestCase):
             logged_in = LoggedInPage(self.driver)
             logged_in.is_header_logged_displayed()
         except:
-            raise Exception('was no able to complete login flow')
+            raise Exception('Was no able to complete login flow')
 
     @classmethod
     def tearDownClass(cls):
