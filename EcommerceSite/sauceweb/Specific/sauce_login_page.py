@@ -1,6 +1,6 @@
 from EcommerceSite.sauceweb.Specific.sauce_login_page_selectors import SauceWebLoginPageSelectors
 from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support import expected_conditions as ec
 
 
 class LoginPage:
@@ -30,7 +30,7 @@ class LoginPage:
         Method will complete login flow
         """
         try:
-            username_wait = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((
+            username_wait = WebDriverWait(self.driver, 10).until(ec.presence_of_element_located((
                 SauceWebLoginPageSelectors.LOGIN_USERNAME_FIELD)))
             username_wait.send_keys(username)
             self.driver.find_element(*SauceWebLoginPageSelectors.LOGIN_PASSWORD_FIELD).send_keys(password)
